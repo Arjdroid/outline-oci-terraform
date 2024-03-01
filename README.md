@@ -34,8 +34,8 @@ region                        = "ex-example-1"
 
 vcn_cidr_block          = "10.0.0.0/16"
 compartment_ocid        = "ocid1.compartment.oc1..exampleuniqueID"
-vcn_display_name        = "MyVCN"
-vcn_dns_label           = "myvcn"
+vcn_display_name        = "OutlineVCN"
+vcn_dns_label           = "outlinevcn"
 
 ```
 
@@ -47,11 +47,11 @@ The networking details are configured as follows:
 - `compartment_ocid`: This is the OCID of the Oracle Cloud compartment where you want to create the VCN.
   - #### Finding Your Compartment OCID
     Your compartment's OCID (Oracle Cloud Identifier) is a unique identifier assigned by OCI to each of your compartments. Here's how to find it:
-      1. Log in to the Oracle Cloud Console.
-      2. Navigate to the hamburger menu in the upper left corner.
-      3. Go to Identity & Security > Compartments.
-      4. Find the compartment you want to use and click on it.
-      5. You'll see the OCID at the top of the page or in the details pane; it's a long string starting with ocid1.compartment....
+    1. Log in to the Oracle Cloud Console.
+    2. Navigate to the hamburger menu in the upper left corner.
+    3. Go to Identity & Security > Compartments.
+    4. Find the compartment you want to use and click on it.
+    5. You'll see the OCID at the top of the page or in the details pane; it's a long string starting with ocid1.compartment....
 - `vcn_display_name`: This can be any name you choose to help identify the VCN in the OCI console.
 - `vcn_dns_label`: This is a unique label that will be part of the DNS domain name for instances within the VCN. It must be unique across all VCNs in your tenancy.
 
