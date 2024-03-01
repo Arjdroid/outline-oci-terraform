@@ -17,7 +17,6 @@ variable "vcn_dns_label" {}
 variable "subnet_cidr_block" {}
 variable "subnet_display_name" {}
 variable "subnet_dns_label" {}
-variable "vcn_id" {}  // Assuming you have this variable from VCN configuration
 
 // Actual OCI Outline Deployment Configuration
 
@@ -117,5 +116,40 @@ resource "oci_core_security_list" "outline_security_list" {
       type = 3
       code = 4
     }
+  }
+}
+
+resource "oci_core_instance" "outline_instance" {
+  availability_domain = data.oci_identity_availability_domain.ad.name
+  compartment_id      = var.compartment_ocid
+  display_name        = var.instance_display_name
+  shape               = var.instance_shape
+
+  create_vnic_details {
+     subnet_id        = oci_core_subnet.outline_subnet.id
+     display_name     = "OutlineVNIC"
+     assign_public_ip = true
+     hostname_label   = var.instance_display_name
+  }
+
+  shape_config {
+    #Optional
+    memory_in_gbs = var.instance_shape_config_memory_in_gbs
+    ocpus = var.instance_shape_config_ocpus
+  }
+
+
+  source_details {
+    source_type = "image"
+    source_id   = var.instance_image_ocid[var.region]
+  }
+
+  metadata = {
+    ssh_authorized_keys = var.ssh_public_key
+    user_data           = base64encode(file("./userdata/init.sh"))
+  }
+
+  timeouts {
+    create = "60m"
   }
 }

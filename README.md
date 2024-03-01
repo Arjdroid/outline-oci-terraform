@@ -38,6 +38,13 @@ compartment_ocid        = "ocid1.compartment.oc1..exampleuniqueID"
 vcn_display_name        = "OutlineVCN"
 vcn_dns_label           = "outlinevcn"
 
+instance_display_name   = "outline"
+
+ssh_public_key          = "ssh-rsa YourPublicKey"
+ssh_private_key_path    = "/path/to/private_key"
+
+
+
 ```
 
 The contents to fill in the oracle cloud platform part of this file are acquired through following the instructions on Oracle Cloud's Documentation to Generate an API Signing Key: https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm and then copying the relevant fields from the 'Configuration file preview' provided on the OCI User Profile > Resources > API keys page https://cloud.oracle.com/identity/domains/my-profile/api-keys to your `terraform.tfvars` file.
