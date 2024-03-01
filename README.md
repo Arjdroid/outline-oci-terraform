@@ -7,6 +7,7 @@ This repository contains Terraform Configurations for running Outline VPN on Ora
 ### Prerequisites
 
 You must have an Oracle Cloud Infrastructure [OCI](https://cloud.oracle.com) Account, and [`terraform`](https://www.terraform.io/) installed on your system.
+Additionally, you must configure SSH keys on your system, here is a guide to do so: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 ### Installation
 
