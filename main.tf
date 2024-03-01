@@ -1,12 +1,8 @@
-// Credit to https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file which this one is based upon
-
-// Defining Variables
-
 variable "tenancy_ocid" {}
 variable "user_ocid" {}
-variable "oracle_api_key_fingerprint" {}
-variable "oracle_api_private_key_path" {}
-variable "oracle_api_private_key_password" {}
+variable "fingerprint" {}
+variable "private_key_path" {}
+//variable "oracle_api_private_key_password" {}
 variable "region" {}
 
 variable "vcn_cidr_block" {}
@@ -18,14 +14,23 @@ variable "subnet_cidr_block" {}
 variable "subnet_display_name" {}
 variable "subnet_dns_label" {}
 
+variable "instance_shape" {}
+variable "availability_domain_number" {}
+variable "instance_display_name" {}
+variable "instance_image_ocid" {}
+variable "instance_shape_config_memory_in_gbs" {}
+variable "instance_shape_config_ocpus" {}
+
+variable "ssh_public_key" {}
+
 // Actual OCI Outline Deployment Configuration
 
 provider "oci" {
   tenancy_ocid          = var.tenancy_ocid
   user_ocid             = var.user_ocid
-  fingerprint           = var.oracle_api_key_fingerprint
-  private_key_path      = var.oracle_api_private_key_path
-  private_key_password  = var.oracle_api_private_key_password
+  fingerprint           = var.fingerprint
+  private_key_path      = var.private_key_path
+  //private_key_password  = var.oracle_api_private_key_password
   region                = var.region
 }
 
@@ -184,3 +189,6 @@ output "connect_with_ssh" {
 output "connect_with_vnc" {
   value = oci_core_instance_console_connection.outline_instance_console_connection.vnc_connection_string
 }
+
+
+// Credit to https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file which this one is based upon
