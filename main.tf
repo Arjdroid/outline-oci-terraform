@@ -153,3 +153,34 @@ resource "oci_core_instance" "outline_instance" {
     create = "60m"
   }
 }
+
+resource "oci_core_instance_console_connection" "outline_instance_console_connection" {
+  #Required
+  instance_id = oci_core_instance.outline_instance.id
+  public_key  = var.ssh_public_key
+}
+
+data "oci_identity_availability_domain" "ad" {
+  compartment_id = var.compartment_ocid
+  ad_number      = var.availability_domain_number
+}
+
+# Gets a list of vNIC attachments on the instance
+data "oci_core_vnic_attachments" "instance_vnics" {
+  compartment_id      = var.compartment_ocid
+  availability_domain = data.oci_identity_availability_domain.ad.name
+  instance_id         = oci_core_instance.outline_instance.id
+}
+
+# Gets the OCID of the first (default) vNIC
+data "oci_core_vnic" "instance_vnic" {
+  vnic_id = lookup(data.oci_core_vnic_attachments.instance_vnics.vnic_attachments[0], "vnic_id")
+}
+
+output "connect_with_ssh" {
+  value = oci_core_instance_console_connection.outline_instance_console_connection.connection_string
+}
+
+output "connect_with_vnc" {
+  value = oci_core_instance_console_connection.outline_instance_console_connection.vnc_connection_string
+}

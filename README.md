@@ -25,6 +25,10 @@ In order to run the project, you must configure it with the necessary details to
 
 This project requires a `terraform.tfvars` file in its root directory to function. The contents of this file are as follows:
 
+You must use the example-terraform.tfvars file provided as a template and fill in the required details, before renaming it to `terraform.tfvars` and
+
+The contents to fill in the oracle cloud platform part of this file:
+
 ```Terraform
 tenancy_ocid                  = "ocid1.tenancy.oc1..exampleuniqueID"
 user_ocid                     = "ocid1.user.oc1..exampleuniqueID"
@@ -35,19 +39,9 @@ region                        = "ex-example-1"
 
 vcn_cidr_block          = "10.0.0.0/16"
 compartment_ocid        = "ocid1.compartment.oc1..exampleuniqueID"
-vcn_display_name        = "OutlineVCN"
-vcn_dns_label           = "outlinevcn"
-
-instance_display_name   = "outline"
-
-ssh_public_key          = "ssh-rsa YourPublicKey"
-ssh_private_key_path    = "/path/to/private_key"
-
-
-
 ```
 
-The contents to fill in the oracle cloud platform part of this file are acquired through following the instructions on Oracle Cloud's Documentation to Generate an API Signing Key: https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm and then copying the relevant fields from the 'Configuration file preview' provided on the OCI User Profile > Resources > API keys page https://cloud.oracle.com/identity/domains/my-profile/api-keys to your `terraform.tfvars` file.
+are acquired through following the instructions on Oracle Cloud's Documentation to Generate an API Signing Key: https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm and then copying the relevant fields from the 'Configuration file preview' provided on the OCI User Profile > Resources > API keys page https://cloud.oracle.com/identity/domains/my-profile/api-keys to your `terraform.tfvars` file.
 
 The networking details are configured as follows:
 
@@ -60,10 +54,15 @@ The networking details are configured as follows:
     3. Go to Identity & Security > Compartments.
     4. Find the compartment you want to use and click on it.
     5. You'll see the OCID at the top of the page or in the details pane; it's a long string starting with ocid1.compartment....
-- `vcn_display_name`: This can be any name you choose to help identify the VCN in the OCI console.
-- `vcn_dns_label`: This is a unique label that will be part of the DNS domain name for instances within the VCN. It must be unique across all VCNs in your tenancy.
 
-After filling out all required details, you may deploy the project
+You must also fill in your ssh details:
+
+```Terraform
+ssh_public_key       = "ssh-rsa SSHPublicKey"
+ssh_private_key_path = "~/.ssh/id_rsa"
+```
+
+After filling out all required details, you can deploy the project
 
 ## Deployment
 
