@@ -18,8 +18,8 @@ variable "instance_shape" {}
 variable "availability_domain_number" {}
 variable "instance_display_name" {}
 variable "instance_image_ocid" {}
-variable "instance_shape_config_memory_in_gbs" {}
-variable "instance_shape_config_ocpus" {}
+//variable "instance_shape_config_memory_in_gbs" {}
+//variable "instance_shape_config_ocpus" {}
 
 variable "ssh_public_key" {}
 
@@ -137,11 +137,11 @@ resource "oci_core_instance" "outline_instance" {
      hostname_label   = var.instance_display_name
   }
 
-  shape_config {
+  /*shape_config {
     #Optional
     memory_in_gbs = var.instance_shape_config_memory_in_gbs
     ocpus = var.instance_shape_config_ocpus
-  }
+  }*/
 
 
   source_details {

@@ -2,6 +2,8 @@
 
 This repository contains Terraform Configurations for running Outline VPN on Oracle Cloud Infrastructure. The author does not endorse any particular uses of the contents of this project and has provided them 'as-is', and does not claim liabilities incurred by those that may use the contents of this project.
 
+> DISCLAIMER: This Project is currently Non-Functional. Pull Requests are Welcome.
+
 ## Instructions
 
 ### Prerequisites
@@ -34,7 +36,7 @@ tenancy_ocid                  = "ocid1.tenancy.oc1..exampleuniqueID"
 user_ocid                     = "ocid1.user.oc1..exampleuniqueID"
 oracle_api_key_fingerprint    = "ex:am:ple:__:fi:ng:er:pr:int"
 oracle_api_private_key_path   = "/path/to/your/private_key.pem"
-oracle_api_private_key_password = "yourPrivateKeyPassword"  # Leave empty if not set
+//oracle_api_private_key_password = "yourPrivateKeyPassword"  # Do not put this if you have not set one
 region                        = "ex-example-1"
 
 vcn_cidr_block          = "10.0.0.0/16"
@@ -59,7 +61,7 @@ You must also fill in your ssh details:
 
 ```Terraform
 ssh_public_key       = "ssh-rsa SSHPublicKey"
-ssh_private_key_path = "~/.ssh/id_rsa"
+//ssh_private_key_path = "~/.ssh/id_rsa" might not need this for configuration
 ```
 
 After filling out all required details, you can deploy the project
