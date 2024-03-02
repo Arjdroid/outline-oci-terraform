@@ -57,4 +57,4 @@ instance_image_ocid = {
 ssh_public_key       = "ssh-rsa SSHPublicKey"
 //ssh_private_key_path = "~/.ssh/id_rsa"
 
-availability_domain_number = 1
+availability_domain_number = 3
