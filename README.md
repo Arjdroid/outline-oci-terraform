@@ -2,7 +2,7 @@
 
 This repository contains Terraform Configurations for running Outline VPN on Oracle Cloud Infrastructure. The author does not endorse any particular uses of the contents of this project and has provided them 'as-is', and does not claim liabilities incurred by those that may use the contents of this project.
 
-> DISCLAIMER: This Project is currently Non-Functional. Pull Requests are Welcome.
+> DISCLAIMER: Currently, this project just auto-provisions an OCI VM, you still need to ssh into it and install outline onto it.
 
 ## Instructions
 
@@ -65,6 +65,8 @@ ssh_public_key       = "ssh-rsa SSHPublicKey"
 ```
 
 After filling out all required details, you can deploy the project
+
+Make sure that the `availability_domain_number` is correct for you. For me, 3 is what works, rather than 1 or 2.
 
 ## Deployment
 
