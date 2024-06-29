@@ -74,3 +74,16 @@ Make sure that the `availability_domain_number` is correct for you. For me, 3 is
 $ terraform plan
 $ terraform apply
 ```
+
+## TODO
+
+Add the following commands to `main.tf` to fix firewall issues
+```bash
+$ sudo apt install firewalld
+$ sudo systemctl start firewalld && sudo systemctl enable firewalld
+$ sudo systemctl status firewalld
+$ sudo firewall-cmd --list-ports
+$ sudo firewall-cmd --zone=public  --add-port=1024-65535/tcp --permanent
+$ sudo firewall-cmd --reload
+$ sudo firewall-cmd --list-ports --zone=public
+```
