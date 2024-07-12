@@ -89,3 +89,8 @@ $ sudo firewall-cmd --list-ports --zone=public
 ```
 
 - [ ] Add an interactive shell script to configure the VPS more efficiently
+
+- [ ] Add Pi-Hole DNS Configuration for improved privacy
+
+## Credit
+Credit to https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file upon which this project is based
