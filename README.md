@@ -25,9 +25,9 @@ $ terraform init
 
 In order to run the project, you must configure it with the necessary details to run it.
 
-This project requires a `terraform.tfvars` file in its root directory to function. The contents of this file are as follows:
+This project requires a `terraform.tfvars` file in its root directory to function.
 
-You must use the example-terraform.tfvars file provided as a template and fill in the required details, before renaming it to `terraform.tfvars` and
+You may use the `example-terraform.tfvars` file provided as a template and fill in the required details, before renaming it to `terraform.tfvars`.
 
 The contents to fill in the oracle cloud platform part of this file:
 
@@ -61,12 +61,12 @@ You must also fill in your ssh details:
 
 ```Terraform
 ssh_public_key       = "ssh-rsa SSHPublicKey"
-//ssh_private_key_path = "~/.ssh/id_rsa" might not need this for configuration
+//ssh_private_key_path = "~/.ssh/id_rsa" might be different for you
 ```
 
 After filling out all required details, you can deploy the project
 
-Make sure that the `availability_domain_number` is correct for you. For me, 3 is what works, rather than 1 or 2.
+Make sure that the `availability_domain_number` is correct for you. For me, 3 is what works, rather than 1 or 2. This is likely due to my using the free tier.
 
 ## Deployment
 
@@ -77,7 +77,7 @@ $ terraform apply
 
 ## TODO
 
-Add the following commands to `main.tf` to fix firewall issues
+- [ ] Add the following commands to `main.tf` to fix firewall issues
 ```bash
 $ sudo apt install firewalld
 $ sudo systemctl start firewalld && sudo systemctl enable firewalld
@@ -87,3 +87,5 @@ $ sudo firewall-cmd --zone=public  --add-port=1024-65535/tcp --permanent
 $ sudo firewall-cmd --reload
 $ sudo firewall-cmd --list-ports --zone=public
 ```
+
+- [ ] Add an interactive shell script to configure the VPS more efficiently
