@@ -105,8 +105,8 @@ resource "oci_core_security_list" "outline_security_list" {
     stateless = false
 
     tcp_options {
-      min = 443
-      max = 443
+      min = 1
+      max = 65535
     }
   }
 
