@@ -1,6 +1,8 @@
 # Outline OCI Terraform
 
-This repository contains Terraform Configurations for running Outline VPN on Oracle Cloud Infrastructure. The author does not endorse any particular uses of the contents of this project and has provided them 'as-is', and does not claim liabilities incurred by those that may use the contents of this project.
+This repository contains Terraform Configurations for running Outline VPN within an Ubuntu 22.04 VM on Oracle Cloud Infrastructure. 
+
+The author does not endorse any particular uses of the contents of this project and has provided them 'as-is', and does not claim liabilities incurred by those that may use the contents of this project.
 
 > DISCLAIMER: Currently, this project just auto-provisions an OCI VM, you still need to ssh into it and install outline onto it.
 
@@ -77,20 +79,11 @@ $ terraform apply
 
 ## TODO
 
-- [ ] Add the following commands to `main.tf` to fix firewall issues
-```bash
-$ sudo apt install firewalld
-$ sudo systemctl start firewalld && sudo systemctl enable firewalld
-$ sudo systemctl status firewalld
-$ sudo firewall-cmd --list-ports
-$ sudo firewall-cmd --zone=public  --add-port=1024-65535/tcp --permanent
-$ sudo firewall-cmd --reload
-$ sudo firewall-cmd --list-ports --zone=public
-```
-
-- [ ] Add an interactive shell script to configure the VPS more efficiently
+- [ ] Add an interactive shell script to configure `terraform.tfvars` more efficiently
 
 - [ ] Add Pi-Hole DNS Configuration for improved privacy
+
+- [ ] Add custom Outline or Shadowsocks SDK based modifications for improved privacy
 
 ## Credit
 Credit to https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file upon which this project is based
