@@ -78,12 +78,11 @@ $ terraform apply
 ```
 
 ## TODO
+- [ ] Update script to new Ubuntu VM version, auto-updater, `mosh`
 
 - [ ] Add an interactive shell script to configure `terraform.tfvars` more efficiently
 
 - [ ] Add Pi-Hole DNS Configuration for improved privacy
 
-- [ ] Add custom Outline or Shadowsocks SDK based modifications for improved privacy
-
-## Credit
-Credit to https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file upon which this project is based
+## Acknowledgements
+Credit to Devin Stokes for inspiration, https://github.com/IAmStoxe/oracle-free-tier-wirehole for their main.tf file upon which this project is based
